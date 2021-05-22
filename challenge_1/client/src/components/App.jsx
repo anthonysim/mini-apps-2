@@ -1,10 +1,12 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
+import SearchBar from './SearchBar.jsx';
 
 const App = () => {
   return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
+    <Container>
+      <SearchBar />
+    </Container>
   );
 };
 
