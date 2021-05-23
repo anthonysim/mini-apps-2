@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { ThemeContextProvider } from "./themeContext.jsx";
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers';
+import thunk from 'redux-thunk';
 
 import App from './components/App.jsx';
 
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
 ReactDOM.render(
-  <ThemeContextProvider>
+  <Provider store={store}>
     <App />
-  </ThemeContextProvider>,
+  </Provider>,
   document.getElementById('root'));
