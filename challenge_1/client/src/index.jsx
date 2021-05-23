@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ThemeContextProvider } from "./themeContext.jsx";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import App from './components/App.jsx';
+
+ReactDOM.render(
+  <ThemeContextProvider>
+    <App />
+  </ThemeContextProvider>,
+  document.getElementById('root'));

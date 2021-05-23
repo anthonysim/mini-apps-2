@@ -1,3 +1,9 @@
+# Historical Event Finder - Challenge 1
+
+## Table of Contents
+
+1. [Usage](#Usage)
+
 ## Usage
 
 ```

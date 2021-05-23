@@ -12,6 +12,7 @@
   "author": "Anthony Sim",
   "license": "MIT",
   "dependencies": {
+    "@babel/runtime-corejs2": "^7.14.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "json-server": "^0.16.3",

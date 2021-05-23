@@ -4,6 +4,7 @@ import SearchBar from './SearchBar.jsx';
 import Events from './Events.jsx';
 
 const App = () => {
+
   return (
     <Container>
       <SearchBar />
