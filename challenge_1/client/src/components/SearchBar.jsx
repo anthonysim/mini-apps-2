@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Dropdown } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { fetchData } from '../actions'
 import axios from 'axios';
@@ -7,7 +7,8 @@ import axios from 'axios';
 
 class SearchBar extends Component {
   state = {
-    filteredSearchResults: []
+    selection: '',
+    filteredResults: []
   }
 
   async componentDidMount() {
@@ -19,13 +20,30 @@ class SearchBar extends Component {
     }
   }
 
+  handleSelect = (e) => {
+    console.log(e);
+    this.setState({ selection: e })
+
+  }
+
   render() {
     return (
       <div>
-        <h1>{this.props.results.length}</h1>
         <br />
         <h1 className="text-info text-center">Historical Events Finder</h1>
         <br />
+        <Dropdown onSelect={this.handleSelect} >
+          <Dropdown.Toggle variant="info" id="dropdown-basic">
+            Select
+        </Dropdown.Toggle>
+          <Dropdown.Menu >
+            <Dropdown.Item eventKey="Date">Date</Dropdown.Item>
+            <Dropdown.Item eventKey="Category">Category</Dropdown.Item>
+            <Dropdown.Item eventKey="Keywords">Keywords</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <br />
+        <h4 className="text-info">{this.state.selection === '' ? 'Choose Selection Above' : `Search by ${this.state.selection}`}</h4>
         <br />
         <Form>
           <Form.Group controlId="formBasicEmail">
