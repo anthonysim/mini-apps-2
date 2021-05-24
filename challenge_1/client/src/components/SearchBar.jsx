@@ -6,11 +6,13 @@ import axios from 'axios';
 
 
 class SearchBar extends Component {
+  state = {
+    filteredSearchResults: []
+  }
+
   async componentDidMount() {
     try {
       await this.props.fetchData();
-      let res = await axios.get('http://localhost:3000/events');
-      console.log(res.data.length);
 
     } catch (err) {
       console.error(err);
