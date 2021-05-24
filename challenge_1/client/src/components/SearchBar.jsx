@@ -1,4 +1,5 @@
 import React, { Component, useState } from 'react';
+import filteredResults from '../helpers/filtered.jsx';
 import { Form, Button, Dropdown } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { fetchData } from '../actions'
@@ -21,9 +22,17 @@ class SearchBar extends Component {
   }
 
   handleSelect = (e) => {
-    console.log(e);
+    // console.log(e);
     this.setState({ selection: e })
+  }
 
+
+  // make a function that calls the helper func and gives back search results, 2 params data and by selection
+  // pagination also
+  //
+  searchResults = () => {
+    console.log(this.props.results[0])
+    this.setState({ selection: '' })
   }
 
   render() {
@@ -53,7 +62,7 @@ class SearchBar extends Component {
             />
           </Form.Group>
         </Form>
-        <Button variant="info" size="lg" block>
+        <Button onClick={this.searchResults} variant="info" size="lg" block>
           Search
       </Button >
       </div>

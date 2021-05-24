@@ -29,11 +29,13 @@ class Events extends Component {
               <td>Mark</td>
               <td>Otto</td>
             </tr>
+
             <tr>
               <td>2</td>
               <td>Jacob</td>
               <td>Thornton</td>
             </tr>
+
             <tr>
               <td>2</td>
               <td>Jacob</td>
