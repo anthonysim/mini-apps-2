@@ -18,9 +18,9 @@ export const fetchData = (url) => {
         if (data.length === 0) {
           dispatch(hasData(true))
         }
-        return data
-
-      }).then(data => {
+        return data;
+      })
+      .then(data => {
         dispatch({
           type: 'HISTORY_SEARCH',
           payload: data
