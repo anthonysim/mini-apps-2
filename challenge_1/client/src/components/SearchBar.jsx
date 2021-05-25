@@ -19,16 +19,10 @@ const SearchBar = () => {
 
   const searchHandler = (e) => {
     e.preventDefault();
-    // if (!values.year || !values.keyword) {
-    //   alert('Please type in years & keyword!');
-
-    // } else {
-    // let url = `http://localhost:3000/events/?date_like=${values.year}&description_like=${values.keyword}`;
     let url = `http://localhost:3000/events/?date_like=${values.year}`;
 
     dispatch(fetchData(url));
     setValues({ year: '', keyword: '' });
-    // }
   }
 
   return (
@@ -46,20 +40,9 @@ const SearchBar = () => {
               value={values.year}
               onChange={handleInputChange}
               name="year"
-              placeholder="year"
+              placeholder="type in a year..."
             />
           </Form.Group>
-
-          {/* <Form.Group as={Col}>
-            <Form.Label>Keyword</Form.Label>
-            <Form.Control
-              type="text"
-              value={values.keyword}
-              onChange={handleInputChange}
-              name="keyword"
-              placeholder="keyword"
-            />
-          </Form.Group> */}
         </Form.Row>
 
         <Button
