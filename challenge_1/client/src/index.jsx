@@ -10,10 +10,10 @@ import App from './components/App.jsx';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
-// store.subscribe(() => {
-//   console.log(store.getState());
-//   console.log('state updated!');
-// });
+store.subscribe(() => {
+  console.log('index.jsx file:', store.getState());
+  console.log('state updated!');
+});
 
 ReactDOM.render(
   <Provider store={store}>

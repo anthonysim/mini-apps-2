@@ -15,18 +15,3 @@ export const fetchData = (url) => {
 };
 
 
-// export const searchData = (date, keywords) => {
-//   return (dispatch) => {
-//     return axios.get(url)
-//       .then(data => res.data)
-//       .then(data => {
-//         dispatch({
-//           type: '',
-//           payload: data
-//         })
-//       })
-//       .catch(err => console.error(err));
-//   };
-// };
-
-
