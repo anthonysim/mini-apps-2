@@ -6,10 +6,13 @@ import Events from './Events.jsx';
 const App = () => {
 
   return (
-    <Container>
-      <SearchBar />
-      <Events />
-    </Container>
+    <div>
+      <Container>
+        <SearchBar />
+
+        <Events />
+      </Container>
+    </div>
   );
 };
 

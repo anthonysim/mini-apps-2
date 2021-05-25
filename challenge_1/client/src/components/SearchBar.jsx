@@ -5,8 +5,9 @@ import { fetchData } from '../actions';
 import axios from 'axios';
 
 
+
 const SearchBar = () => {
-  const [values, setValues] = useState({ year: '', keyword: '' })
+  const [values, setValues] = useState({ year: '', keyword: '' });
   const { searchedReducer: data, dataFoundReducer: dataFound } = useSelector(state => state);
   const dispatch = useDispatch();
 
@@ -18,15 +19,16 @@ const SearchBar = () => {
 
   const searchHandler = (e) => {
     e.preventDefault();
-    if (!values.year || !values.keyword) {
-      alert('Please type in years & keyword!');
+    // if (!values.year || !values.keyword) {
+    //   alert('Please type in years & keyword!');
 
-    } else {
-      let url = `http://localhost:3000/events/?date_like=${values.year}&description_like=${values.keyword}`;
+    // } else {
+    // let url = `http://localhost:3000/events/?date_like=${values.year}&description_like=${values.keyword}`;
+    let url = `http://localhost:3000/events/?date_like=${values.year}`;
 
-      dispatch(fetchData(url));
-      setValues({ year: '', keyword: '' });
-    }
+    dispatch(fetchData(url));
+    setValues({ year: '', keyword: '' });
+    // }
   }
 
   return (
@@ -48,7 +50,7 @@ const SearchBar = () => {
             />
           </Form.Group>
 
-          <Form.Group as={Col}>
+          {/* <Form.Group as={Col}>
             <Form.Label>Keyword</Form.Label>
             <Form.Control
               type="text"
@@ -57,7 +59,7 @@ const SearchBar = () => {
               name="keyword"
               placeholder="keyword"
             />
-          </Form.Group>
+          </Form.Group> */}
         </Form.Row>
 
         <Button
@@ -69,7 +71,6 @@ const SearchBar = () => {
           Search
         </Button>
       </Form>
-
     </div>
   );
 };
