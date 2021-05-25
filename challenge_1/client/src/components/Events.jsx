@@ -1,62 +1,57 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Table } from 'react-bootstrap';
+
 import ReactPaginate from 'react-paginate';
 
 
 const Events = () => {
-  const data = useSelector(state => state.searchedReducer);
+  const { searchedReducer: data, dataFoundReducer: dataFound } = useSelector(state => state);
 
   if (data.length) {
-    console.log(data[0].date)
+    console.log(data)
+    console.log(dataFound)
   }
 
   return (
     <div>
       <br />
-      {data.length === 0
-        ? <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Year</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-        </Table>
-        : <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Year</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>2</td>
-            </tr>
+      <h1>{dataFound.toString()}</h1>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Description</th>
+          </tr>
+        </thead>
 
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-            </tr>
+        {!dataFound && <tbody>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+          </tr>
 
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-            </tr>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+          </tr>
 
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-            </tr>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+          </tr>
 
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-            </tr>
-          </tbody>
-        </Table>}
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+          </tr>
+
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+          </tr>
+        </tbody>}
+      </Table>
     </div >
   );
 };
