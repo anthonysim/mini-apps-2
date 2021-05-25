@@ -1,82 +1,142 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import filteredResults from '../helpers/filtered.jsx';
 import { Form, Button, Dropdown } from 'react-bootstrap';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { fetchData } from '../actions'
 import axios from 'axios';
 
 
-class SearchBar extends Component {
-  state = {
-    selection: '',
-    filteredResults: []
-  }
+const SearchBar = () => {
+  const data = useSelector(state => state.searchedReducer);
+  const dispatch = useDispatch();
 
-  async componentDidMount() {
-    try {
-      await this.props.fetchData();
+  useEffect(async () => {
+    await dispatch(fetchData('http://localhost:3000/events'));
+  }, []);
 
-    } catch (err) {
-      console.error(err);
-    }
-  }
+  console.log('look at me', data)
 
-  handleSelect = (e) => {
-    // console.log(e);
-    this.setState({ selection: e })
-  }
+  // function handleSelect(e) {
+  //   // console.log(e);
+  //   this.setState({ selection: e })
+  // }
 
 
   // make a function that calls the helper func and gives back search results, 2 params data and by selection
   // pagination also
   //
-  searchResults = () => {
+  function searchResults() {
     console.log(this.props.results[0])
     this.setState({ selection: '' })
   }
 
-  render() {
-    return (
-      <div>
-        <br />
-        <h1 className="text-info text-center">Historical Events Finder</h1>
-        <br />
-        <Dropdown onSelect={this.handleSelect} >
-          <Dropdown.Toggle variant="info" id="dropdown-basic">
-            Select
+  return (
+    <div>
+      <br />
+      <h1 className="text-info text-center">Historical Events Finder</h1>
+      <br />
+      <Dropdown  >
+        <Dropdown.Toggle variant="info" id="dropdown-basic">
+          Select
         </Dropdown.Toggle>
-          <Dropdown.Menu >
-            <Dropdown.Item eventKey="Date">Date</Dropdown.Item>
-            <Dropdown.Item eventKey="Category">Category</Dropdown.Item>
-            <Dropdown.Item eventKey="Keywords">Keywords</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <br />
-        <h4 className="text-info">{this.state.selection === '' ? 'Choose Selection Above' : `Search by ${this.state.selection}`}</h4>
-        <br />
-        <Form>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Control
-              type="text"
-              placeholder="find historical events..."
-            />
-          </Form.Group>
-        </Form>
-        <Button onClick={this.searchResults} variant="info" size="lg" block>
-          Search
+        <Dropdown.Menu >
+          <Dropdown.Item eventKey="Date">Date</Dropdown.Item>
+          <Dropdown.Item eventKey="Category">Category</Dropdown.Item>
+          <Dropdown.Item eventKey="Keywords">Keywords</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+      <br />
+      <h4 className="text-info"></h4>
+      <br />
+      <Form>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Control
+            type="text"
+            placeholder="find historical events..."
+          />
+        </Form.Group>
+      </Form>
+      <Button variant="info" size="lg" block>
+        Search
       </Button >
-      </div>
-    );
-  }
+    </div>
+  );
 };
 
-const mapStateToProps = state => ({
-  results: state.searchedReducer
-})
 
-const mapDispatchToProps = dispatch => ({
-  fetchData: () => dispatch(fetchData())
-});
+export default SearchBar;
+
+// class SearchBar extends Component {
+//   state = {
+//     selection: '',
+//     filteredResults: []
+//   }
+
+//   async componentDidMount() {
+//     try {
+//       await this.props.fetchData();
+
+//     } catch (err) {
+//       console.error(err);
+//     }
+//   }
+
+//   handleSelect = (e) => {
+//     // console.log(e);
+//     this.setState({ selection: e })
+//   }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+//   // make a function that calls the helper func and gives back search results, 2 params data and by selection
+//   // pagination also
+//   //
+//   searchResults = () => {
+//     console.log(this.props.results[0])
+//     this.setState({ selection: '' })
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <br />
+//         <h1 className="text-info text-center">Historical Events Finder</h1>
+//         <br />
+//         <Dropdown onSelect={this.handleSelect} >
+//           <Dropdown.Toggle variant="info" id="dropdown-basic">
+//             Select
+//         </Dropdown.Toggle>
+//           <Dropdown.Menu >
+//             <Dropdown.Item eventKey="Date">Date</Dropdown.Item>
+//             <Dropdown.Item eventKey="Category">Category</Dropdown.Item>
+//             <Dropdown.Item eventKey="Keywords">Keywords</Dropdown.Item>
+//           </Dropdown.Menu>
+//         </Dropdown>
+//         <br />
+//         <h4 className="text-info">{this.state.selection === '' ? 'Choose Selection Above' : `Search by ${this.state.selection}`}</h4>
+//         <br />
+//         <Form>
+//           <Form.Group controlId="formBasicEmail">
+//             <Form.Control
+//               type="text"
+//               placeholder="find historical events..."
+//             />
+//           </Form.Group>
+//         </Form>
+//         <Button onClick={this.searchResults} variant="info" size="lg" block>
+//           Search
+//       </Button >
+//       </div>
+//     );
+//   }
+// };
+
+// const mapStateToProps = state => ({
+//   results: state.searchedReducer
+// })
+
+// const mapDispatchToProps = dispatch => ({
+//   fetchData: () => dispatch(fetchData())
+// });
+
+
+// export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

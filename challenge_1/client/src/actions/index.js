@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const fetchData = () => {
+export const fetchData = (url) => {
   return (dispatch) => {
-    return axios.get('http://localhost:3000/events')
+    return axios.get(url)
       .then(res => res.data)
       .then(data => {
         dispatch({
