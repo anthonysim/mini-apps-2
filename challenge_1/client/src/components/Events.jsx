@@ -10,6 +10,7 @@ const Events = () => {
   const [pageNum, setPageNum] = useState(0);
   const [year, setYear] = useState(0);
 
+  // everytime searchYr is updated, setPageNum(0) is invoked
   useEffect(() => {
     setPageNum(0);
   }, [searchYr]);
