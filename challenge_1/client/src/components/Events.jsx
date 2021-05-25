@@ -27,21 +27,7 @@ const Events = () => {
             <th>Description</th>
           </tr>
         </thead>
-
-        {!dataFound && <tbody>
-
-          {results}
-          {/* <tr>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-          </tr> */}
-
-        </tbody>}
+        {!dataFound && <tbody>{results}</tbody>}
       </Table>
     </div >
   );

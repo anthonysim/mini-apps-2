@@ -16,14 +16,15 @@ const SearchBar = () => {
     setValues({ ...values, [name]: value });
   };
 
-  const searchHandler = async () => {
+  const searchHandler = (e) => {
+    e.preventDefault();
     if (!values.year || !values.keyword) {
       alert('Please type in years & keyword!');
 
     } else {
       let url = `http://localhost:3000/events/?date_like=${values.year}&description_like=${values.keyword}`;
 
-      await dispatch(fetchData(url));
+      dispatch(fetchData(url));
       setValues({ year: '', keyword: '' });
     }
   }
@@ -34,7 +35,7 @@ const SearchBar = () => {
       {dataFound === true ? <h1 className="text-center text-danger">No Results!</h1> : <h1 className="text-info text-center">Historical Events Finder</h1>}
       <br />
       <br />
-      <Form>
+      <Form onSubmit={searchHandler}>
         <Form.Row>
           <Form.Group as={Col} >
             <Form.Label>Year</Form.Label>
@@ -42,7 +43,6 @@ const SearchBar = () => {
               type="text"
               value={values.year}
               onChange={handleInputChange}
-
               name="year"
               placeholder="year"
             />
@@ -61,7 +61,7 @@ const SearchBar = () => {
         </Form.Row>
 
         <Button
-          onClick={() => searchHandler()}
+          type="submit"
           variant="info"
           size="lg"
           block
@@ -69,6 +69,7 @@ const SearchBar = () => {
           Search
         </Button>
       </Form>
+
     </div>
   );
 };
