@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "react:dev": "webpack --mode development --watch --hot",
+    "react:dev": "webpack --mode development --watch",
     "start": "node server",
     "server": "nodemon server"
   },
   "author": "Anthony Sim",
   "license": "MIT",
   "dependencies": {
+    "@babel/runtime-corejs2": "^7.14.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "chart.js": "^3.3.0",

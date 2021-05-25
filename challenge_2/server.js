@@ -10,9 +10,10 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
-// app.get('/', (req, res) => {
-//   res.send('Hello World!')
-// })
+app.get('/current_price', (req, res) => {
+  console.log(req.body)
+  res.end();
+})
 
 const PORT = 3000;
 app.listen(PORT, () => {
