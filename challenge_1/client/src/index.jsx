@@ -10,13 +10,13 @@ import App from './components/App.jsx';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
+// store.subscribe(() => {
+//   console.log(store.getState());
+//   console.log('state updated!');
+// });
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root'));
-
-store.subscribe(() => {
-  console.log(store.getState());
-  console.log('state updated!');
-});

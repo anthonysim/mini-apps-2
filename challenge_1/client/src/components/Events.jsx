@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Table, Pagination } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
+import ReactPaginate from 'react-paginate';
 
 
 const Events = () => {
@@ -8,8 +9,6 @@ const Events = () => {
 
   return (
     <div>
-      <br />
-      <br />
       <br />
       <h1></h1>
       <Table striped bordered hover>
