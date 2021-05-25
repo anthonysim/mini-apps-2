@@ -1,8 +1,19 @@
 import React from 'react';
+import CurrentPrice from './CurrentPrice.jsx';
+import HistoricalPrice from './HistoricalPrice.jsx';
+import { Container } from 'react-bootstrap';
+
 
 const App = () => {
   return (
-    <div>Hello World!</div>
+    <div>
+      <Container>
+        <br />
+        <br />
+        <CurrentPrice />
+        {/* <HistoricalPrice /> */}
+      </Container>
+    </div>
   );
 };
 
