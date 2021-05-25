@@ -2,3 +2,19 @@ Table {
   table-layout: fixed;
   word-wrap: break-word;
 }
+
+.paginationBttns {
+  color: rgb(95, 149, 199);
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 1px;
+  border-radius: 2.5px;
+  border: 1px solid rgb(95, 149, 199);
+  cursor: pointer;
+}

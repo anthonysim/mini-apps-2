@@ -36,7 +36,7 @@ const SearchBar = () => {
       <br />
       {dataFound === true ? <h1 className="text-center text-danger">No Results!</h1> : <h1 className="text-info text-center">Historical Events Finder</h1>}
       <br />
-      <br />
+
       <Form onSubmit={searchHandler}>
         <Form.Row>
           <Form.Group as={Col} >

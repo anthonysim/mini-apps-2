@@ -9,7 +9,6 @@ const App = () => {
     <div>
       <Container>
         <SearchBar />
-
         <Events />
       </Container>
     </div>

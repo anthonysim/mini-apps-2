@@ -17,14 +17,28 @@ const Events = () => {
   const dataPerPage = 10;
   const pagesVisited = pageNum * dataPerPage;
   const displayData = results.slice(pagesVisited, pagesVisited + dataPerPage);
+  const pageCount = Math.ceil(data.length / dataPerPage);
 
   if (data.length > 0) {
     console.log(data)
   }
 
+  const changePage = ({ selected }) => {
+    setPageNum(selected);
+  }
+
   return (
     <div>
       <br />
+      <ReactPaginate
+        previousLabel={'Prev'}
+        nextLabel={'Next'}
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={"paginationBttns"}
+        disabledClassName={"paginationDisabled"}
+        activeClassName={"paginationActive"}
+      />
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -32,8 +46,9 @@ const Events = () => {
             <th>Description</th>
           </tr>
         </thead>
-        {!dataFound && <tbody>{results}</tbody>}
+        {!dataFound && <tbody>{displayData}</tbody>}
       </Table>
+
     </div >
   );
 };
