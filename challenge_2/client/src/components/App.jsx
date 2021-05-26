@@ -4,13 +4,18 @@ import HistoricalPrice from './HistoricalPrice.jsx';
 import { Container } from 'react-bootstrap';
 
 
+import LineChart from './LineChart.jsx';
+
+
 const App = () => {
   return (
     <div>
       <Container>
+
         <br />
         <br />
         <CurrentPrice />
+        <LineChart />
         {/* <HistoricalPrice /> */}
       </Container>
     </div>

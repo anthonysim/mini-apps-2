@@ -9,4 +9,5 @@ const HistoricalPrice = () => {
   );
 };
 
+
 export default HistoricalPrice;
