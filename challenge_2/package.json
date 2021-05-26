@@ -4,9 +4,9 @@
   "description": "Cryptocurrency Charting Tool",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "react:dev": "webpack --mode development --watch",
     "start": "node server",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch",
     "server": "nodemon server"
   },
   "author": "Anthony Sim",
