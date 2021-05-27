@@ -7,7 +7,7 @@ const ThreeMonthPrice = () => {
     <div>
       <br />
       <br />
-      <h1 className="text-center" style={{ color: 'rgba(54, 162, 235, 1)' }}>3 Month Bitcoin Price</h1>
+      <h1 className="text-center" style={{ color: 'rgba(75, 192, 192, 1)' }}>3 Month Bitcoin Price</h1>
 
       <Line
         data={{
@@ -23,7 +23,7 @@ const ThreeMonthPrice = () => {
         height={200}
         width={600}
       />
-    </div>
+    </div >
   );
 };
 
