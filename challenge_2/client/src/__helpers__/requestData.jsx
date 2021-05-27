@@ -1,11 +1,9 @@
 import axios from 'axios';
 
 
-const RequestData = async () => {
+const RequestData = async (url) => {
   try {
-    let res = await axios.get('http://localhost:3000/current');
-    let currentPrice = res.data.price.rate;
-
+    let res = await axios.get(url);
     return res.data;
 
   } catch (err) {

@@ -1,8 +1,8 @@
 import React from 'react';
 import Home from './Home.jsx';
 import CurrentPrice from './CurrentPrice.jsx';
-import OneMonthPrice from './OneMonthPrice.jsx';
-import ThreeMonthPrice from './ThreeMonthPrice.jsx';
+import LastMonth from './LastMonth.jsx';
+import ThreeMonth from './ThreeMonth.jsx';
 import { Container } from 'react-bootstrap';
 import { Link, Switch, Route } from 'react-router-dom';
 import '../styling/styles.css'
@@ -22,8 +22,8 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/current" component={CurrentPrice} />
-          <Route exact path="/one-month" component={OneMonthPrice} />
-          <Route exact path="/three-month" component={ThreeMonthPrice} />
+          <Route exact path="/one-month" component={LastMonth} />
+          <Route exact path="/three-month" component={ThreeMonth} />
         </Switch>
         <br />
         <br />

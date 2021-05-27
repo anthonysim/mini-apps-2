@@ -1,8 +1,10 @@
 import React from 'react';
+import axios from 'axios';
 import { Line } from 'react-chartjs-2';
 
 
-const ThreeMonthPrice = () => {
+const ThreeMonth = () => {
+
   return (
     <div>
       <br />
@@ -15,8 +17,8 @@ const ThreeMonthPrice = () => {
           datasets: [{
             label: 'Bitcoin Price - 3 Months',
             data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: 'rgba(54, 162, 235, 1)',
-            borderColor: 'rgba(54, 162, 235, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 1)',
+            borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1.5,
           }]
         }}
@@ -28,4 +30,4 @@ const ThreeMonthPrice = () => {
 };
 
 
-export default ThreeMonthPrice;
+export default ThreeMonth;

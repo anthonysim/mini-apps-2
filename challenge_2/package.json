@@ -4,10 +4,10 @@
   "description": "Cryptocurrency Charting Tool",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
+    "start": "node server/server",
     "build": "webpack --mode production",
     "dev": "webpack serve --mode development --open --hot",
-    "server": "nodemon server"
+    "server": "nodemon server/server"
   },
   "author": "Anthony Sim",
   "license": "MIT",

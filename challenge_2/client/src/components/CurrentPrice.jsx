@@ -7,11 +7,11 @@ import axios from 'axios';
 
 const CurrentPrice = () => {
   const [current, setCurrent] = useState({ time: '', price: undefined })
-  console.log(current)
+  // console.log(current)
 
   // componentDidMount
   useEffect(() => {
-    let res = RequestData();
+    let res = RequestData('http://localhost:3000/current');
 
     res.then(data => {
       let price = data.price.rate;
@@ -26,14 +26,14 @@ const CurrentPrice = () => {
 
   // react inline styles.
   const styleOptions = {
-    color: 'rgba(54, 162, 235, 1)',
+    color: 'rgba(75, 192, 192, 1)'
   };
 
   return (
     <div>
       <br />
       <br />
-      <h1 className="text-center" style={{ color: 'rgba(75, 192, 192, 1)' }}>Current Bitcoin Price</h1>
+      <h1 className="text-center" style={styleOptions}>Current Bitcoin Price</h1>
       <br />
       <br />
       <Card className="card shadow p- mb-5 mt-1 bg-white rounded" style={{ width: '18rem' }}>
