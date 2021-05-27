@@ -26,6 +26,7 @@ const LastMonth = () => {
       <br />
       <br />
       <h1 className="text-center" style={{ color: 'rgba(75, 192, 192, 1)' }}>Last 30 Days</h1>
+      <br />
       <Line
         data={{
           labels: lastMonth.labels,
