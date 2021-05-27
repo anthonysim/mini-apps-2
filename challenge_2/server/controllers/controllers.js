@@ -32,3 +32,12 @@ exports.getLastMonth = async (req, res) => {
     res.end();
   }
 }
+
+exports.getLastThreeMonth = async (req, res) => {
+
+}
+
+
+
+
+// https://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05

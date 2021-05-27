@@ -25,8 +25,7 @@ const LastMonth = () => {
     <div>
       <br />
       <br />
-      <h1 className="text-center" style={{ color: 'rgba(75, 192, 192, 1)' }}>1 Month Bitcoin Price</h1>
-
+      <h1 className="text-center" style={{ color: 'rgba(75, 192, 192, 1)' }}>Last 30 Days Bitcoin Price</h1>
       <Line
         data={{
           labels: lastMonth.labels,
