@@ -18,3 +18,17 @@ exports.getCurrent = async (req, res) => {
     res.end();
   }
 }
+
+exports.getLastMonth = async (req, res) => {
+  try {
+    let request = await axios.get('https://api.coindesk.com/v1/bpi/historical/close.json')
+      .then(res => {
+        return res.data.bpi;
+      })
+    res.json(request);
+
+  } catch (err) {
+    console.error(err);
+    res.end();
+  }
+}

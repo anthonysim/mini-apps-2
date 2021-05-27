@@ -14,15 +14,15 @@ const App = () => {
       <Container>
         <br />
         <div className="links d-flex justify-content-center">
-          <Link id="firstLink" to="/">Home</Link>
+          <Link to="/">Home</Link>
           <Link to="/current">Current</Link>
-          <Link to="/one-month">1 Month Price</Link>
+          <Link to="/last-month">1 Month Price</Link>
           <Link to="/three-month">3 Month Price</Link>
         </div>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/current" component={CurrentPrice} />
-          <Route exact path="/one-month" component={LastMonth} />
+          <Route exact path="/last-month" component={LastMonth} />
           <Route exact path="/three-month" component={ThreeMonth} />
         </Switch>
         <br />

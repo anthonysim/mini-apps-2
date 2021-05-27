@@ -1,25 +1,24 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
+import axios from 'axios';
 
 
 const LastMonth = () => {
-  const [current, setCurrent] = useState({ time: '', price: undefined })
-  // console.log(current)
+  const [lastMonth, setLastMonth] = useState({ labels: [], prices: [] });
+  // console.log(lastMonth)
 
   // componentDidMount
-  useEffect(() => {
-    let res = RequestData('http://localhost:3000/last-month');
+  useEffect(async () => {
+    try {
+      let res = await axios.get('http://localhost:3000/last-month');
+      const labels = Object.keys(res.data);
+      const prices = Object.values(res.data);
 
-    res.then(data => {
-      let price = data.price.rate;
+      setLastMonth({ labels, prices });
 
-      setCurrent({
-        time: data.time.updated,
-        price: price.substring(0, price.length - 2),
-      })
-    })
-      .catch(err => console.error(err))
+    } catch (err) {
+      console.error(err);
+    }
   }, []);
 
   return (
@@ -30,10 +29,10 @@ const LastMonth = () => {
 
       <Line
         data={{
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          labels: lastMonth.labels,
           datasets: [{
             label: 'Bitcoin Price - 1 Months',
-            data: [12, 19, 3, 5, 2, 3],
+            data: lastMonth.prices,
             backgroundColor: 'rgba(75, 192, 192, 1)',
             borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1.5,
