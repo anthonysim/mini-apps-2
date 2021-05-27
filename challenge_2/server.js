@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // ROUTES
 // GET Request for current price
-app.get('/current_price', async (req, res) => {
+app.get('/current', async (req, res) => {
   try {
     let request = await axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
       .then(res => {
