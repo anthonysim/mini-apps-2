@@ -11,7 +11,7 @@ const ThreeMonth = () => {
   useEffect(async () => {
     try {
       let res = await axios.get('http://localhost:3000/three-month');
-      console.log(res.data);
+      // console.log(res.data);
       const labels = Object.keys(res.data);
       const prices = Object.values(res.data);
 

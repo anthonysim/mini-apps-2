@@ -3,7 +3,7 @@ import Home from './Home.jsx';
 import CurrentPrice from './CurrentPrice.jsx';
 import LastMonth from './LastMonth.jsx';
 import ThreeMonth from './ThreeMonth.jsx';
-import Error from './Error.jsx';
+import NoMatch from './NoMatch.jsx';
 import { Container } from 'react-bootstrap';
 import { Link, Switch, Route } from 'react-router-dom';
 import '../styling/styles.css'
@@ -25,7 +25,7 @@ const App = () => {
           <Route path="/current" component={CurrentPrice} />
           <Route path="/last-month" component={LastMonth} />
           <Route path="/three-month" component={ThreeMonth} />
-          <Route path="*" component={Error} />
+          <Route component={NoMatch} />
         </Switch>
         <br />
         <br />
