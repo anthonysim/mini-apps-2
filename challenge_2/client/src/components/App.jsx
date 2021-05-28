@@ -25,7 +25,7 @@ const App = () => {
           <Route path="/current" component={CurrentPrice} />
           <Route path="/last-month" component={LastMonth} />
           <Route path="/three-month" component={ThreeMonth} />
-          <Route component={Error} />
+          <Route path="*" component={Error} />
         </Switch>
         <br />
         <br />

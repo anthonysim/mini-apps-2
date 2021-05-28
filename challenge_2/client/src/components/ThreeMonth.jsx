@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const ThreeMonth = () => {
   const [threeMonth, setThreeMonth] = useState({ labels: [], prices: [] });
-  console.log(threeMonth)
+  // console.log(threeMonth)
 
   // componentDidMount
   useEffect(async () => {
@@ -14,7 +14,7 @@ const ThreeMonth = () => {
       console.log(res.data);
       const labels = Object.keys(res.data);
       const prices = Object.values(res.data);
-      // console.log(labels)
+
       setThreeMonth({ labels, prices });
 
     } catch (err) {
